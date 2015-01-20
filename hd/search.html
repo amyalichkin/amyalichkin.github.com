@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="imagesSearch">
+<head>
+    <title>Images</title>
+    <link rel="stylesheet" href="assets/vendors/uikit/css/uikit.min.css" />
+    <link rel="stylesheet" href="assets/vendors/uikit/css/uikit.almost-flat.min.css" />
+</head>
+<body ng-controller="ImagesList">
+
+    <nav class="uk-navbar uk-navbar-attached">
+
+        <div class="uk-navbar-content uk-navbar-center">
+            <form class="uk-form uk-margin-remove uk-display-inline-block">
+                <input placeholder="Search" type="text" class="uk-form-width-large" ng-model="query" ng-change="update()">
+            </form>
+        </div>
+    </nav>
+
+    <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+        <div id="images_list" class="uk-grid" data-uk-grid-margin>
+
+            <div class="uk-width-medium-1-1 uk-margin-large-bottom" ng-repeat="image in images">
+                <div class="uk-thumbnail uk-thumbnail-expand">
+                    <img ng-src="{{image.unescapedUrl}}" />
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="uk-grid-divider">
+    </div>
+
+    <script src="assets/vendors/angular/angular.min.js"></script>
+    <script src="assets/javascripts/search.js"></script>
+</body>
+</html>
